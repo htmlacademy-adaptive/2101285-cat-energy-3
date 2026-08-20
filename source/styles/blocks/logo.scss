@@ -1,0 +1,33 @@
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 190px;
+
+  @media (min-width: $tablet-width) {
+    width: 174px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 202px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &:focus-visible {
+    opacity: 0.8;
+  }
+}
+
+.logo__image {
+  @media (min-width: $desktop-width) {
+    width: 118px;
+    height: 21px;
+  }
+}

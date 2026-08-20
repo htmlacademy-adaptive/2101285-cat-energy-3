@@ -1,0 +1,124 @@
+@mixin font-face($font-family, $font-weight, $font-style, $font-src) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+    src: $font-src;
+  }
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@mixin programs-bg {
+  position: absolute;
+
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+
+  content: "";
+
+  background-color: $accent-color;
+  border-radius: 50%;
+
+  @media (min-width: $tablet-width) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@mixin programs-icon($width, $height, $id:"") {
+  position: absolute;
+
+  display: inline-block;
+  width: $width;
+  height: $height;
+
+  content: "";
+
+  background-image: url("../../icons/stack.svg##{$id}");
+}
+
+@mixin plan($id:"", $bg-size) {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+
+  content: "";
+
+  background-color: $accent-color;
+  background-image: url("../../icons/stack.svg##{$id}");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: $bg-size;
+
+  @media (min-width: $tablet-width) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@mixin socials($id:"", $bg-size) {
+  display: block;
+  width: 40px;
+  height: 40px;
+
+  content: "";
+
+  background-color: $icons-grey;
+  mask-image: url("../../icons/stack.svg##{$id}");
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: $bg-size;
+}
+
+@mixin line($bg-color) {
+  position: absolute;
+
+  left: calc(-1 * (100vw - 100%) / 2);
+
+  width: 100vw;
+  height: 1px;
+
+  content: "";
+
+  background-color: $bg-color;
+}
+
+@mixin accent-line {
+  position: absolute;
+  top: 50%;
+  left: calc(-1 * (100vw - 100%) / 2);
+  transform: translateY(-2px);
+  z-index: -2;
+
+  width: 100vw;
+  height: 2px;
+
+  content: "";
+
+  background-color: $accent-color;
+}
+
+@mixin accent-line-divider {
+  position: absolute;
+  top: 0;
+  left: calc(-1 * (100vw - 100%) / 2);
+  z-index: -1;
+
+  height: 30px;
+
+  content: "";
+
+  background-color: $white;
+}

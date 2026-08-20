@@ -1,0 +1,142 @@
+.plan {
+  position: relative;
+
+  padding-top: 10px;
+  padding-bottom: 49px;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 25px;
+    padding-bottom: 60px;
+
+    &::after {
+      @include line($nav-grey);
+      bottom: 0;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-top: 31px;
+    padding-bottom: 47px;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.plan__title {
+  margin-top: 0;
+  margin-bottom: 39px;
+
+  font-family: $secondary-font;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 400;
+  color: $black;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 71px;
+
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 73px;
+  }
+}
+
+.plan__list {
+  @include reset-list;
+
+  counter-reset: plan 0;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 90px 133px;
+  }
+
+  @media (min-width: $desktop-width) {
+    gap: 20px 73px;
+  }
+}
+
+.plan__item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  counter-increment: plan 1;
+
+  @media (max-width: $mobile-width-only) {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    flex-direction: column;
+    gap: 31px;
+    align-items: flex-start;
+    width: 250px;
+    min-height: 227px;
+  }
+}
+
+.plan__item--leaf::before {
+  @include plan("leaf", 25px 28px);
+}
+
+.plan__item--powder::before {
+  @include plan("powder", 26px 29px);
+}
+
+.plan__item--diet::before {
+  @include plan("diet", 25px 30px);
+}
+
+.plan__item--clock::before {
+  @include plan("clock", 26px 31px);
+}
+
+.plan__item-description {
+  width: 200px;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (min-width: $tablet-width) {
+    z-index: 1;
+
+    width: 250px;
+
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.plan__item::after {
+  @media (min-width: $tablet-width) {
+    position: absolute;
+    top: -40px;
+    right: 0;
+
+    content: counter(plan);
+
+    font-family: $secondary-font;
+    font-size: 280px;
+    line-height: 280px;
+    text-align: center;
+    color: $bg-grey-basic;
+  }
+}
+
+.plan__item--leaf::after {
+  right: 28px;
+}

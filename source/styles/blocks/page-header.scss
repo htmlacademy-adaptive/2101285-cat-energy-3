@@ -1,0 +1,109 @@
+.page-header {
+  font-family: $secondary-font;
+
+  overflow-x: hidden;
+
+  &:has(.page-header__hero) {
+    @media (min-width: $desktop-width) {
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+
+        width: 50%;
+        height: 100%;
+
+        content: "";
+
+        background-image:
+          linear-gradient(to right, rgba(104, 183, 56, 0.85) 1040px, rgb(98, 165, 57) 1040px),
+          image-set(url("../../images/hero-background-desktop@1x.webp") 1x, url("../../images/hero-background-desktop@2x.webp") 2x, url("../../images/hero-background-desktop@1x.jpg") 1x, url("../../images/hero-background-desktop@2x.jpg") 2x);
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: auto 694px;
+      }
+
+      & .navigation {
+        @media (min-width: $desktop-width) {
+          color: $white;
+        }
+      }
+
+      & .navigation__link--current::after {
+        background-color: $white;
+      }
+    }
+  }
+
+  &:has(.navigation--closed):not(:has(.page-header__hero)) {
+    @media (max-width: $mobile-width-only) {
+      border-bottom: 1px solid $line-grey;
+    }
+  }
+}
+
+.page-header__container {
+  padding-top: 13px;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-top: 55px;
+  }
+}
+
+.page-header__logo {
+  @media (max-width: $mobile-width-only) {
+    margin-bottom: 12px;
+  }
+}
+
+.page-header__toggle {
+  @media (max-width: $mobile-width-only) {
+    position: absolute;
+    top: 12px;
+    right: 11px;
+
+    display: block;
+
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    box-sizing: border-box;
+
+    background-color: $white;
+    background-image: url("../../icons/stack.svg#menu");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 24px 24px;
+    border: none;
+  }
+
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.page-header__toggle:has(+ .navigation--nojs) {
+  display: none;
+}
+
+.page-header__toggle:has(+ .navigation--closed) {
+  @media (max-width: $mobile-width-only) {
+    display: block;
+  }
+}
+
+.page-header__toggle:has(+ .navigation--open) {
+  display: block;
+  padding: 11px;
+
+  background-image: url("../../icons/stack.svg#close");
+  background-size: 18px 18px;
+}
